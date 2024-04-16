@@ -76,8 +76,16 @@ header {
   color: var(--neon-pink);
   padding: 1em;
   text-align: center;
-  display: grid;
 }
+
+#logoContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr; 
+  align-items: center; 
+  justify-content: center;
+  gap: 0; 
+}
+
 
 h1 {
   font-size: 2em;
@@ -102,7 +110,7 @@ nav ul li a {
 }
 
 nav ul li a:hover{
-  color: var(--blue);
+  color: var(--mint);
 }
 
 main {
@@ -114,9 +122,13 @@ section {
 }
 
 iframe {
-  width: 100%;
   border: 3px solid var(--neon-pink);
   margin-top: 1em;
+}
+
+img, iframe, section, video, h1 {
+  max-width: 100%; 
+  height: auto; 
 }
 
 figcaption, p {
@@ -124,6 +136,11 @@ figcaption, p {
   color: var(--black);
   padding: 1em;
 
+}
+
+header, footer, main, nav, section {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .tags {
@@ -161,8 +178,6 @@ h2{
 }
 
 .layout-grid img {
-  width: 100%;
-  height: auto;
   border: 2px solid var(--neon-pink);
   margin-top: 1em;
 }
@@ -176,6 +191,11 @@ footer {
   color: var(--mint);
   text-align: center;
   padding: 1em;
+}
+
+#hidden{
+  position: fixed;
+  bottom: -100px;
 }
 
 
@@ -200,15 +220,19 @@ footer {
   bottom: -28px; 
 }
 
-/* Styling for the logo */
-#logo {
+/* Styling for the contact*/
+#portrait {
   box-shadow: 0 0 10px 5px #000000;
   background-color: #000000;
-  float: right; /* Float the logo to the right */
-  width: 100px; /* Adjust the width as needed */
-  margin: .5em; /* Add some left margin to separate the logo from the text */
+  float: right; 
+  width: 100px; 
+  margin: .5em; 
   top: 0;
   right: 0; 
+}
+
+#aboutme{
+  min-height: 180px;
 }
 
 .textbox {
@@ -231,8 +255,8 @@ footer {
   display: block; 
   text-align: center;
   transition: fill 0.3s; 
-  display: inline-flex; /* Makes the link flex container for better control */
-  align-items: center; /* Centers the SVG vertically within the link */
+  display: inline-flex; 
+  align-items: center; 
   justify-content: center;
 }
 
@@ -262,6 +286,20 @@ footer {
   text-align: center;
 }
 
+#myResume{
+  display: grid;
+  justify-content: center;
+}
+
+#resume{
+  border: 3px solid var(--neon-pink);
+  padding: 10px;
+}
+
+#wrapText{
+  grid-column: 1/3;
+}
+
 /*return to top*/
 #return-to-top {
   position: fixed;
@@ -289,30 +327,50 @@ footer {
   fill: var(--blue);transition: fill 0.3s; 
 }
 
+/* Header Styles*/
+#logo{
+  width: 7em;
+  justify-self: end;
+}
+#logoText{
+  justify-self: start;
+  width: 2em;
+}
+#wrapText{
+  justify-self: center;
+}
+#logoContainer, #wrapText {
+  grid-column: 1/-1;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+
+  header, main, footer, #logoText, #wrapText {
+    font-size: smaller; 
+}
+}
+
+
 /* Responsive styling for larger screens */
 @media screen and (min-width: 768px) {
   .layout-grid {
       grid-template-columns: repeat(2, 1fr);
   }
-  #logo{
+  #portrait{
     width: 120px;
+  }
+  #logoContainer {
+    grid-template-columns: 2fr 3em 3fr; 
+  }
+  #wrapText{
+    grid-column: 3 /-1;
+    justify-self: start;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  header {
-      text-align: left;
-  }
-
-  nav ul {
-      float: right;
-  }
-
-  nav ul li {
-      display: inline-block;
-  }
-
-  .layout-grid {
-      grid-template-columns: repeat(4, 1fr);
-  }
+  header, main, footer, #logoText, #wrapText {
+    font-size: larger; 
+}
 }

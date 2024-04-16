@@ -102,13 +102,14 @@ nav ul li {
   display: inline;
   margin-right: 10px;
   border: 3px solid var(--neon-pink);
+  border-radius: 5px;
 }
 
 nav ul li a {
   color: var(--neon-pink);
   text-decoration: none;
   transition: fill 0.3s ease;
-  
+  margin: 3px;
 }
 
 nav ul li a:hover{
